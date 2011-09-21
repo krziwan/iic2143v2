@@ -1223,3 +1223,440 @@ Sep 20 16:58:12 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 10
 Sep 20 16:58:12 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 17.76 ms (1)
 Sep 20 16:58:12 symfony [info] {sfWebDebugLogger} Partial "sfGuardAuth/_signin_form" 4.89 ms (1)
 Sep 20 16:58:12 symfony [info] {sfWebResponse} Send content (37733 o)
+Sep 21 14:12:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 14:12:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 14:12:52 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Sep 21 14:12:52 symfony [info] {myUser} Automatic user logout due to timeout
+Sep 21 14:12:52 symfony [info] {myUser} User is not authenticated
+Sep 21 14:12:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 14:12:52 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 14:12:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 14:12:52 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Sep 21 14:12:54 symfony [info] {myUser} User is authenticated
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Sep 21 14:12:54 symfony [info] {myUser} Add credential(s) "admin"
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2011-09-21 14:12:54, 2011-09-21 14:12:54, 1)
+Sep 21 14:12:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Sep 21 14:12:55 symfony [info] {sfFrontWebController} Redirect to "http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send header "Location: http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Configuration 343.39 ms (8)
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Factories 461.77 ms (1)
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 2341.37 ms (1)
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.06 ms (7)
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send content (115 o)
+Sep 21 14:12:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 14:12:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 14:12:55 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 14:12:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 14:12:55 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 14:12:55 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 14:12:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 14:12:55 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 14:12:55 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 14:12:55 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 14:12:55 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Configuration 42.20 ms (10)
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Factories 44.55 ms (1)
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} Action "static/index" 0.18 ms (1)
+Sep 21 14:12:55 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 107.18 ms (1)
+Sep 21 14:12:55 symfony [info] {sfWebResponse} Send content (31950 o)
+Sep 21 14:13:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 14:13:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 14:13:06 symfony [info] {sfPatternRouting} Match route "sf_guard_signout" (/logout) for /logout with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signout',)
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 14:13:06 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignout()"
+Sep 21 14:13:06 symfony [info] {myUser} User is not authenticated
+Sep 21 14:13:06 symfony [info] {sfFrontWebController} Redirect to "http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send header "Location: http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send cookie "sfRemember": ""
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Configuration 1.92 ms (8)
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Factories 112.87 ms (1)
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signout" 22.43 ms (1)
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send content (115 o)
+Sep 21 14:13:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 14:13:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 14:13:06 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 14:13:06 symfony [info] {sfBasicSecurityFilter} Action "static/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 14:13:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 14:13:06 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 14:13:06 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Sep 21 14:13:06 symfony [info] {sfPartialView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/_signin_form.php"
+Sep 21 14:13:06 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 14:13:06 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Configuration 87.79 ms (13)
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Factories 43.17 ms (1)
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 10.12 ms (1)
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 163.36 ms (1)
+Sep 21 14:13:06 symfony [info] {sfWebDebugLogger} Partial "sfGuardAuth/_signin_form" 25.99 ms (1)
+Sep 21 14:13:06 symfony [info] {sfWebResponse} Send content (37616 o)
+Sep 21 15:43:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 15:43:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 15:43:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 15:43:29 symfony [info] {myUser} Automatic user logout due to timeout
+Sep 21 15:43:29 symfony [info] {myUser} User is not authenticated
+Sep 21 15:43:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 15:43:30 symfony [info] {sfBasicSecurityFilter} Action "static/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Sep 21 15:43:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:30 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 15:43:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 15:43:30 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 15:43:30 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Sep 21 15:43:30 symfony [info] {sfPartialView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/_signin_form.php"
+Sep 21 15:43:30 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:30 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:44 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 15:43:44 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 15:43:44 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 15:43:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:44 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 15:43:44 symfony [info] {sfBasicSecurityFilter} Action "static/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Sep 21 15:43:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:44 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 15:43:44 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 15:43:44 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 15:43:44 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Sep 21 15:43:44 symfony [info] {sfPartialView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/_signin_form.php"
+Sep 21 15:43:44 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:44 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Sep 21 15:43:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 15:43:44 symfony [info] {sfWebDebugLogger} Configuration 2.38 ms (12)
+Sep 21 15:43:44 symfony [info] {sfWebDebugLogger} Factories 126.36 ms (1)
+Sep 21 15:43:44 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 10.41 ms (1)
+Sep 21 15:43:44 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 55.69 ms (1)
+Sep 21 15:43:44 symfony [info] {sfWebDebugLogger} Partial "sfGuardAuth/_signin_form" 5.88 ms (1)
+Sep 21 15:43:44 symfony [info] {sfWebResponse} Send content (37694 o)
+Sep 21 15:43:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 15:43:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 15:43:48 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Sep 21 15:43:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:48 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 15:43:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 15:43:48 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Sep 21 15:43:51 symfony [info] {myUser} User is authenticated
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Sep 21 15:43:51 symfony [info] {myUser} Add credential(s) "admin"
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2011-09-21 15:43:51, 2011-09-21 15:43:51, 1)
+Sep 21 15:43:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Sep 21 15:43:51 symfony [info] {sfFrontWebController} Redirect to "http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send header "Location: http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Configuration 1.51 ms (8)
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Factories 124.35 ms (1)
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 3315.75 ms (1)
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (7)
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send content (115 o)
+Sep 21 15:43:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 15:43:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 15:43:51 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 15:43:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:51 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 15:43:51 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 15:43:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 15:43:51 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 15:43:51 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 15:43:51 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:51 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Configuration 2.49 ms (9)
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Factories 50.78 ms (1)
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} Action "static/index" 0.14 ms (1)
+Sep 21 15:43:51 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 48.63 ms (1)
+Sep 21 15:43:51 symfony [info] {sfWebResponse} Send content (31998 o)
+Sep 21 15:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 15:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 15:43:55 symfony [info] {sfPatternRouting} Match route "sf_guard_signout" (/logout) for /logout with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signout',)
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 15:43:55 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignout()"
+Sep 21 15:43:55 symfony [info] {myUser} User is not authenticated
+Sep 21 15:43:55 symfony [info] {sfFrontWebController} Redirect to "http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send header "Location: http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send cookie "sfRemember": ""
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Configuration 1.57 ms (8)
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Factories 44.47 ms (1)
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signout" 1.19 ms (1)
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send content (115 o)
+Sep 21 15:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 15:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 15:43:55 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 15:43:55 symfony [info] {sfBasicSecurityFilter} Action "static/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 15:43:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 15:43:55 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 15:43:55 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Sep 21 15:43:55 symfony [info] {sfPartialView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/_signin_form.php"
+Sep 21 15:43:55 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:55 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Configuration 2.44 ms (12)
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Factories 63.61 ms (1)
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 9.78 ms (1)
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 181.30 ms (1)
+Sep 21 15:43:55 symfony [info] {sfWebDebugLogger} Partial "sfGuardAuth/_signin_form" 14.10 ms (1)
+Sep 21 15:43:55 symfony [info] {sfWebResponse} Send content (37670 o)
+Sep 21 16:23:40 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:23:40 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:23:40 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:23:40 symfony [info] {myUser} Automatic user logout due to timeout
+Sep 21 16:23:40 symfony [info] {myUser} User is not authenticated
+Sep 21 16:23:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:23:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:23:40 symfony [info] {sfBasicSecurityFilter} Action "static/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Sep 21 16:23:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:23:40 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:23:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:23:40 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 16:23:41 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Sep 21 16:23:41 symfony [info] {sfPartialView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/_signin_form.php"
+Sep 21 16:23:41 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:23:41 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:23:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Sep 21 16:23:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:23:41 symfony [info] {sfWebDebugLogger} Configuration 18.33 ms (12)
+Sep 21 16:23:41 symfony [info] {sfWebDebugLogger} Factories 636.02 ms (1)
+Sep 21 16:23:41 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 431.30 ms (1)
+Sep 21 16:23:41 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 319.66 ms (1)
+Sep 21 16:23:41 symfony [info] {sfWebDebugLogger} Partial "sfGuardAuth/_signin_form" 69.94 ms (1)
+Sep 21 16:23:41 symfony [info] {sfWebResponse} Send content (38481 o)
+Sep 21 16:23:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:23:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:23:42 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Sep 21 16:23:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:23:42 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:23:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:23:42 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Sep 21 16:23:43 symfony [info] {myUser} User is authenticated
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Sep 21 16:23:43 symfony [info] {myUser} Add credential(s) "admin"
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2011-09-21 16:23:43, 2011-09-21 16:23:43, 1)
+Sep 21 16:23:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Sep 21 16:23:43 symfony [info] {sfFrontWebController} Redirect to "http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send header "Location: http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Configuration 1.56 ms (8)
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Factories 104.21 ms (1)
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 809.44 ms (1)
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (7)
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send content (115 o)
+Sep 21 16:23:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:23:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:23:43 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:23:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:23:43 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:23:43 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:23:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:23:43 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:23:43 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:23:43 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:23:43 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:23:43 symfony [notice] {sfWebDebugLogger}  Notice at /Users/maxfindel/Sites/iic2143/lib/vendor/symfony/lib/escaper/sfOutputEscaper.class.php on line 241 (Undefined property: myUser::$username)
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Configuration 1.74 ms (9)
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Factories 43.74 ms (1)
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} Action "static/index" 0.14 ms (1)
+Sep 21 16:23:43 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 87.48 ms (1)
+Sep 21 16:23:43 symfony [info] {sfWebResponse} Send content (32199 o)
+Sep 21 16:24:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:24:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:24:15 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:24:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:24:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:24:15 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:24:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:24:15 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:24:15 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:24:15 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:24:15 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:24:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:24:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Sep 21 16:24:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:24:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:24:15 symfony [info] {sfWebDebugLogger} Configuration 1.91 ms (9)
+Sep 21 16:24:15 symfony [info] {sfWebDebugLogger} Factories 47.24 ms (1)
+Sep 21 16:24:15 symfony [info] {sfWebDebugLogger} Action "static/index" 0.15 ms (1)
+Sep 21 16:24:15 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 214.22 ms (1)
+Sep 21 16:24:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Sep 21 16:24:15 symfony [info] {sfWebResponse} Send content (36351 o)
+Sep 21 16:25:46 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:25:46 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:25:46 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:25:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:25:46 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:25:46 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:25:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:25:46 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:25:46 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:25:46 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:25:46 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:25:46 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:25:46 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Sep 21 16:25:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:25:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:25:46 symfony [info] {sfWebDebugLogger} Configuration 1.86 ms (9)
+Sep 21 16:25:46 symfony [info] {sfWebDebugLogger} Factories 47.32 ms (1)
+Sep 21 16:25:46 symfony [info] {sfWebDebugLogger} Action "static/index" 0.16 ms (1)
+Sep 21 16:25:46 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 67.67 ms (1)
+Sep 21 16:25:46 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Sep 21 16:25:46 symfony [info] {sfWebResponse} Send content (36357 o)
+Sep 21 16:26:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:26:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:26:36 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:26:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:26:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:26:36 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:26:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:26:36 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:26:36 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:26:36 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:26:36 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:26:36 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:26:36 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Sep 21 16:26:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:26:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:26:36 symfony [info] {sfWebDebugLogger} Configuration 1.93 ms (9)
+Sep 21 16:26:36 symfony [info] {sfWebDebugLogger} Factories 45.30 ms (1)
+Sep 21 16:26:36 symfony [info] {sfWebDebugLogger} Action "static/index" 0.14 ms (1)
+Sep 21 16:26:36 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 100.61 ms (1)
+Sep 21 16:26:36 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Sep 21 16:26:36 symfony [info] {sfWebResponse} Send content (36364 o)
+Sep 21 16:26:59 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:26:59 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:26:59 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:26:59 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:26:59 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:26:59 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:26:59 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:26:59 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:26:59 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:26:59 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:26:59 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:26:59 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:26:59 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Sep 21 16:26:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:26:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:26:59 symfony [info] {sfWebDebugLogger} Configuration 1.90 ms (9)
+Sep 21 16:26:59 symfony [info] {sfWebDebugLogger} Factories 129.17 ms (1)
+Sep 21 16:26:59 symfony [info] {sfWebDebugLogger} Action "static/index" 0.16 ms (1)
+Sep 21 16:26:59 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 94.06 ms (1)
+Sep 21 16:26:59 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Sep 21 16:26:59 symfony [info] {sfWebResponse} Send content (36275 o)
+Sep 21 16:27:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:27:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:27:42 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:27:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:27:42 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:27:42 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:27:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:27:42 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:27:42 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:27:42 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:27:42 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:27:42 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:27:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Sep 21 16:27:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:27:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:27:42 symfony [info] {sfWebDebugLogger} Configuration 1.81 ms (9)
+Sep 21 16:27:42 symfony [info] {sfWebDebugLogger} Factories 48.99 ms (1)
+Sep 21 16:27:42 symfony [info] {sfWebDebugLogger} Action "static/index" 0.15 ms (1)
+Sep 21 16:27:42 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 70.41 ms (1)
+Sep 21 16:27:42 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Sep 21 16:27:42 symfony [info] {sfWebResponse} Send content (36261 o)
+Sep 21 16:27:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:27:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:27:53 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:27:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:27:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:27:53 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:27:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:27:53 symfony [info] {staticActions} Call "staticActions->executeIndex()"
+Sep 21 16:27:53 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/modules/static/templates/indexSuccess.php"
+Sep 21 16:27:53 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:27:53 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:27:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Sep 21 16:27:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.first_name AS s__first_name, s.last_name AS s__last_name, s.email_address AS s__email_address, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Sep 21 16:27:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 21 16:27:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:27:53 symfony [info] {sfWebDebugLogger} Configuration 1.89 ms (9)
+Sep 21 16:27:53 symfony [info] {sfWebDebugLogger} Factories 46.38 ms (1)
+Sep 21 16:27:53 symfony [info] {sfWebDebugLogger} Action "static/index" 0.15 ms (1)
+Sep 21 16:27:53 symfony [info] {sfWebDebugLogger} View "Success" for "static/index" 86.54 ms (1)
+Sep 21 16:27:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Sep 21 16:27:53 symfony [info] {sfWebResponse} Send content (36267 o)
+Sep 21 16:30:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:30:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:30:10 symfony [info] {sfPatternRouting} Match route "sf_guard_signout" (/logout) for /logout with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signout',)
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:30:10 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignout()"
+Sep 21 16:30:10 symfony [info] {myUser} User is not authenticated
+Sep 21 16:30:10 symfony [info] {sfFrontWebController} Redirect to "http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send header "Location: http://iic2143v2.localhost/frontend_dev.php/"
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send cookie "sfRemember": ""
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Configuration 1.72 ms (8)
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Factories 65.45 ms (1)
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signout" 1.32 ms (1)
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send content (115 o)
+Sep 21 16:30:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/guard/login)
+Sep 21 16:30:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/guard/logout)
+Sep 21 16:30:10 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'static',  'action' => 'index',)
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Sep 21 16:30:10 symfony [info] {sfBasicSecurityFilter} Action "static/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Sep 21 16:30:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 21 16:30:10 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Sep 21 16:30:10 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Sep 21 16:30:10 symfony [info] {sfPartialView} Render "/Users/maxfindel/Sites/iic2143/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/_signin_form.php"
+Sep 21 16:30:10 symfony [info] {sfPHPView} Decorate content with "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:30:10 symfony [info] {sfPHPView} Render "/Users/maxfindel/Sites/iic2143/apps/frontend/templates/layout.php"
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Configuration 2.26 ms (12)
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Factories 44.67 ms (1)
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 10.85 ms (1)
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 19.25 ms (1)
+Sep 21 16:30:10 symfony [info] {sfWebDebugLogger} Partial "sfGuardAuth/_signin_form" 5.04 ms (1)
+Sep 21 16:30:10 symfony [info] {sfWebResponse} Send content (37668 o)

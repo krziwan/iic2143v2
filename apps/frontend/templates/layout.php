@@ -26,11 +26,14 @@
 
 		        <div id="nav" class="box">
 		        <ul>
-		          <li id="first"><a href="#">HOME</a></li> <!-- Aktivní položka -->
+		          <li id="first"><a href="#">INICIO</a></li> 
 		          <li><a href="#">ABOUT US</a></li>
 		          <li><a href="#">PRODUCTS</a></li>
 							<li><a href="#">PHOTOS</a></li>
 							<li><a href="#">CONTACT</a></li>
+							<? if($sf_user->isAuthenticated()):  ?>
+							<li><a href="<?= url_for('sf_guard_signout') ?>">SALIR&nbsp;(<?= $sf_user->getUsername() ?>)</a></li>
+							<?  endif; ?>
 						</ul>
 		        <hr class="noscreen" />
 		      </div>      

@@ -1,0 +1,12 @@
+Perfil:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [nombre]
+      canUpdate: true
+  columns:
+    nombre:           { type: string(255), notnull: true }
+    active:           { type: boolean, notnull: true, default: '1' }
+  relations:
+    
