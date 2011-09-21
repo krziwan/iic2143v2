@@ -6,5 +6,9 @@ security:  ~
 
 # insert your own filters here
 
+remember_me:
+  class: sfGuardRememberMeFilter
+
+
 cache:     ~
 execution: ~
